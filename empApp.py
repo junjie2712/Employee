@@ -26,7 +26,7 @@ def home():
 
 @app.route("/displayEmp")
 def displayEmp():
-    cursor = con.cursor()
+    cursor = db_conn.cursor()
     cursor.execute("SELECT * from employee")
     data = cursor.fetchall()
     return render_template('displayEmp.html', data=data)

@@ -33,11 +33,13 @@ def about():
 
 @app.route("/addemp", methods=['POST'])
 def AddEmp():
-    emp_id = request.form['emp_id']
-    first_name = request.form['first_name']
-    last_name = request.form['last_name']
-    pri_skill = request.form['pri_skill']
-    location = request.form['location']
+    empID = request.form['empID']
+    fName = request.form['fName']
+    lName = request.form['lName']
+    position = request.form['position']
+    payscale = request.form['payscale']
+    hireDate = request.form['hireDate']
+    
     emp_image_file = request.files['emp_image_file']
 
     insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s)"

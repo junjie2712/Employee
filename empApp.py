@@ -24,6 +24,10 @@ table = 'Employee'
 def home():
     return render_template('index.html')
 
+@app.route("/displayEmp")
+def displayEmployee():
+    return render_template('displayEmp.html')
+
 
 @app.route("/addEmp", methods=['POST'])
 def AddEmp():
@@ -82,7 +86,7 @@ if __name__ == '__main__':
 
 
 @app.route("/displayEmp")
-def AddEmp():
+def displayEmp():
     cursor = db_conn.cursor()
     cursor.execute("SELECT * from employee")
     data = cursor.fetchall()

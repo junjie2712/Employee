@@ -35,7 +35,7 @@ def AddEmp():
     
     emp_image_file = request.files['empImage']
 
-    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %f, %s)"
+    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %.2f, %s)"
     cursor = db_conn.cursor()
 
     if emp_image_file.filename == "":

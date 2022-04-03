@@ -25,8 +25,10 @@ def home():
     return render_template('index.html')
 
 @app.route("/displayEmp")
-def displayEmployee():
-    return render_template('displayEmp.html')
+def displayEmp():
+    cursor.execute("SELECT * from employee")
+    data = cursor.fetchall()
+    return render_template('displayEmp.html', data=data)
 
 
 @app.route("/addEmp", methods=['POST'])
@@ -85,8 +87,3 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
 
 
-@app.route("/displayEmp")
-def displayEmp():
-    cursor.execute("SELECT * from employee")
-    data = cursor.fetchall()
-    render_template('displayEmp.html', data=data)

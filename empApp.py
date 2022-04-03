@@ -45,7 +45,7 @@ def AddEmp():
 
         cursor.execute(insert_sql, (empID, fName, lName, position, payscale, hireDate))
         db_conn.commit()
-        emp_name = "" + first_name + " " + last_name 
+        emp_name = "" + fName + " " + lName 
         # Uplaod image file in S3 #
         emp_image_file_name_in_s3 = "emp-id-" + str(empID) + "_image_file"
         s3 = boto3.resource('s3')

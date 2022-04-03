@@ -20,29 +20,22 @@ db_conn = connections.Connection(
 output = {}
 table = 'Employee'
 
-
 @app.route("/", methods=['GET', 'POST'])
 def home():
-    return render_template('AddEmp.html')
+    return render_template('awsWebsite/index.html')
 
-
-@app.route("/about", methods=['POST'])
-def about():
-    return render_template('www.intellipaat.com')
-
-
-@app.route("/addemp", methods=['POST'])
+@app.route("/addEmp", methods=['POST'])
 def AddEmp():
     empID = request.form['empID']
     fName = request.form['fName']
     lName = request.form['lName']
     position = request.form['position']
     payscale = request.form['payscale']
-    hireDate = request.form['hireDate']
+    hireDate = request.form['hDate']
     
-    emp_image_file = request.files['emp_image_file']
+    emp_image_file = request.files['empImage']
 
-    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s)"
+    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %d, %s)"
     cursor = db_conn.cursor()
 
     if emp_image_file.filename == "":
@@ -50,11 +43,11 @@ def AddEmp():
 
     try:
 
-        cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location))
+        cursor.execute(insert_sql, (empID, fName, lName, position, payscale, hireDate))
         db_conn.commit()
-        emp_name = "" + first_name + " " + last_name
+        emp_name = "" + first_name + " " + last_name 
         # Uplaod image file in S3 #
-        emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
+        emp_image_file_name_in_s3 = "emp-id-" + str(empID) + "_image_file"
         s3 = boto3.resource('s3')
 
         try:
@@ -80,7 +73,7 @@ def AddEmp():
         cursor.close()
 
     print("all modification done...")
-    return render_template('AddEmpOutput.html', name=emp_name)
+    return render_template('awsWebsite/index.html')
 
 
 if __name__ == '__main__':

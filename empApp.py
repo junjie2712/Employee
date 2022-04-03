@@ -87,7 +87,6 @@ if __name__ == '__main__':
 
 @app.route("/displayEmp")
 def displayEmp():
-    cursor = db_conn.cursor()
     cursor.execute("SELECT * from employee")
     data = cursor.fetchall()
     render_template('displayEmp.html', data=data)

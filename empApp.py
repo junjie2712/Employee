@@ -24,6 +24,7 @@ table = 'Employee'
 def home():
     return render_template('index.html')
 
+
 @app.route("/addEmp", methods=['POST'])
 def AddEmp():
     empID = request.form['empID']
@@ -78,3 +79,11 @@ def AddEmp():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
+
+
+@app.route("/displayEmp")
+def AddEmp():
+    cursor = db_conn.cursor()
+    cursor.execute("SELECT * from employee"))
+    data = cursor.fetchall()
+    render_template('displayEmp', data=data)

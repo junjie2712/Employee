@@ -22,7 +22,7 @@ table = 'Employee'
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
-    return render_template('awsWebsite/index.html')
+    return render_template('index.html')
 
 @app.route("/addEmp", methods=['POST'])
 def AddEmp():
@@ -73,7 +73,7 @@ def AddEmp():
         cursor.close()
 
     print("all modification done...")
-    return render_template('awsWebsite/index.html')
+    return render_template('index.html')
 
 
 if __name__ == '__main__':

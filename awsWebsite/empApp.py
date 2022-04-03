@@ -4,7 +4,7 @@ import os
 import boto3
 from config import *
 
-app = Flask(__name__, template_folder='awsWebsite')
+app = Flask(__name__, template_folder='../')
 
 bucket = custombucket
 region = customregion

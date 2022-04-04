@@ -114,11 +114,12 @@ def AddEmpLeave():
     empName = request.form['empName']
     totalDays = request.form['totalDays']
     reason = request.form['reason']
-    insert_sql = "INSERT INTO leave VALUES (%s, %s, %s, %s, %s)"
+
+    insert_addLeavesql = "INSERT INTO leave VALUES (%s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
     try:
-        cursor.execute(insert_sql, (leaveID, empID, empName, totalDays, reason))
+        cursor.execute(insert_addLeavesql, (leaveID, empID, empName, totalDays, reason))
         db_conn.commit()
 
     finally:

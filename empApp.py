@@ -26,8 +26,8 @@ table = 'Employee'
 def home():
     return render_template('index.html')
 
-@app.route("/addEmp")
-def home():
+@app.route("/addEmpUI")
+def AddEmpUI():
     return render_template('addEmp.html')
 
 @app.route("/displayEmp")
@@ -38,11 +38,11 @@ def displayEmp():
     return render_template('displayEmp.html', data=data)
 
 @app.route("/addLeave")
-def home():
+def AddLeave():
     return render_template('addLeave.html')
 
 @app.route("/disPayroll")
-def home():
+def disPayroll():
     return render_template('disPayroll.html')
 
 
@@ -95,7 +95,7 @@ def AddEmp():
         cursor.close()
 
     print("all modification done...")
-    return render_template('index.html')
+    return render_template('addEmp.html')
 
 
 if __name__ == '__main__':

@@ -43,7 +43,10 @@ def AddLeave():
 
 @app.route("/disPayroll")
 def disPayroll():
-    return render_template('disPayroll.html')
+    cursor = db_conn.cursor()
+    cursor.execute("SELECT e.empID , l.empName, e.position, e.payscale, l.totalDays, SUM(l.totalDays * 100),SUM(e.payscale - (l.totalDays * 100)) FROM empLeave l, employee e  Where e.empID = l.empID GROUP BY e.empID")
+    data = cursor.fetchall()
+    return render_template('disPayroll.html', data=data)
 
 
 @app.route("/addEmp", methods=['POST'])

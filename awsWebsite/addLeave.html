@@ -12,9 +12,9 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
 
 
+
     <!-- Bootstrap core CSS -->
     <link href="{{ url_for('static',filename='dist/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
-
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -54,6 +54,12 @@
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">
+                                <span data-feather="home"></span>
+                                Homepage
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{{ url_for('AddEmpUI') }}">
                                 <span data-feather="user-plus"></span>
                                 Add Employee
@@ -86,6 +92,26 @@
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Add Leave</h1>
                 </div>
+
+                <form action="/addLeave" method="POST">
+                <label>Employee ID:</label>
+                <input type="text" name="searchData">
+                <input type="submit">
+                </form>
+                </br></br>
+
+                {% for item in data %}
+                         <label>Employee Name:</label>
+                <input type="text" value="{{item[2]}} {{item[1]}}" disabled></br></br>  
+                
+                {% endfor %}
+                
+                <label>Start Leave Date:</label>
+                <input type="text" ></br></br>
+                <label>End Leave Date:</label>
+                <input type="text"></br></br>
+                <label>Reason:</label>
+                <input type="text">
             </main>
         </div>
     </div>

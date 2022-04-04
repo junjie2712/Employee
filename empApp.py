@@ -97,8 +97,20 @@ def AddEmp():
     print("all modification done...")
     return render_template('addEmp.html')
 
+@app.route("/addLeave",methods=['GET', 'POST'])
+def searchEmp():
+    if request.method == "POST":
+        cursor = db_conn.cursor()
+        try:
+            cursor.execute("SELECT * from employee where empID=%s",request.form['searchData'])
+        except Exception,e:
+            db_conn.rollback()
+        else:
+            db_conn.commit()
+            data = cursor.fetchone() 
+       return render_template("addLeave.html", data=data)
+    else:
+         return render_template('addLeave.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
-
-

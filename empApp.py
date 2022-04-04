@@ -22,31 +22,31 @@ db_conn = connections.Connection(
 output = {}
 table = 'Employee'
 
-@app.route("/")
+@app.route('/')
 def home():
     return render_template('index.html')
 
-@app.route("/AddEmpUI")
+@app.route('/AddEmpUI')
 def AddEmpUI():
     return render_template('addEmp.html')
 
-@app.route("/displayEmp")
+@app.route('/displayEmp')
 def displayEmp():
     cursor = db_conn.cursor()
     cursor.execute("SELECT * from employee")
     data = cursor.fetchall()
     return render_template('displayEmp.html', data=data)
 
-@app.route("/addLeave")
+@app.route('/addLeave')
 def AddLeave():
     return render_template('addLeave.html')
 
-@app.route("/disPayroll")
+@app.route('/disPayroll')
 def disPayroll():
     return render_template('disPayroll.html')
 
 
-@app.route("/addEmp", methods=['POST'])
+@app.route('/addEmp', methods=['POST'])
 def AddEmp():
     empID = request.form['empID']
     fName = request.form['fName']

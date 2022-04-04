@@ -103,9 +103,9 @@ def searchEmp():
         cursor = db_conn.cursor()
         cursor.execute("SELECT * from employee where empID=%s",request.form['searchData'])
         data = cursor.fetchall() 
-        return render_template("addLeave.html", data=data)
+        return render_template("addEmpLeave.html", data=data)
     else:
-        return render_template('addLeave.html')
+        return render_template('addEmpLeave.html.html')
 
 @app.route("/saveLeave", methods=['POST'])
 def AddLeave():

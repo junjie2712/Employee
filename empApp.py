@@ -117,13 +117,9 @@ def AddEmpLeave():
 
     insert_addLeavesql = "INSERT INTO leave VALUES (%s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
-
-    try:
-        cursor.execute(insert_addLeavesql, (leaveID, empID, empName, totalDays, reason))
-        db_conn.commit()
-
-    finally:
-        cursor.close()
+    cursor.execute(insert_addLeavesql, (leaveID, empID, empName, totalDays, reason))
+    db_conn.commit()
+    cursor.close()
 
     return render_template('addLeave.html')
 

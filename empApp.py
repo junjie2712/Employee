@@ -120,12 +120,10 @@ def AddLeave():
     try:
         cursor.execute(insert_sql, (leaID, empID, empName, totalDays, reason))
         db_conn.commit()
-        except Exception as e:
-            return str(e)
 
     finally:
         cursor.close()
-        
+
     return render_template('addLeave.html')
 
 if __name__ == '__main__':

@@ -2,9 +2,12 @@ from flask import Flask, render_template, request, redirect
 from pymysql import connections
 import os
 import boto3
+import os.path
 from config import *
 
-app = Flask(__name__, template_folder='awsWebsite')
+STATIC_DIR = os.path.abspath('awsWebsite/assets/dist')
+
+app = Flask(__name__, template_folder='awsWebsite' ,static_folder=STATIC_DIR)
 
 bucket = custombucket
 region = customregion

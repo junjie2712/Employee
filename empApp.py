@@ -109,16 +109,16 @@ def searchEmp():
 
 @app.route("/addEmpLeave", methods=['POST'])
 def AddEmpLeave():
-    leaID=request.form['leaveID'] 
+    leaveID=request.form['leaveID'] 
     empID = request.form['empID']
-    empName = request.form['name']
+    empName = request.form['empName']
     totalDays = request.form['totalDays']
     reason = request.form['reason']
     insert_sql = "INSERT INTO leave VALUES (%s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
     try:
-        cursor.execute(insert_sql, (leaID, empID, empName, totalDays, reason))
+        cursor.execute(insert_sql, (leaveID, empID, empName, totalDays, reason))
         db_conn.commit()
 
     finally:

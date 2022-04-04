@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Payroll</title>
+    <title>Net Pay</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
 
@@ -80,7 +80,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('disPayroll') }}">
                                 <span data-feather="dollar-sign"></span>
-                                Display Employees Payroll
+                                Display Employees Net Pay
                             </a>
                         </li>
                     </ul>
@@ -114,9 +114,8 @@
                             <td>{{item[2]}}</td>
                             <td>RM {{item[3]}}</td>
                             <td>{{item[4]}}</td>
-                            <td>{{item[5]}}</td>
+                            <td>RM{{item[5]}}</td>
                             <td>RM {{item[6]}}</td>
-                            <td>RM {{item[7]}}</td>
                         </tr>
                         {% endfor %}
                     </tbody>

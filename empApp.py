@@ -102,7 +102,7 @@ def searchEmp():
     if request.method == "POST":
         cursor = db_conn.cursor()
 
-            cursor.execute("SELECT * from employee where empID='%s'",request.form['searchData'])
+            cursor.execute("SELECT * from employee where empID=%s",request.form['searchData'])
 
 
             data = cursor.fetchall() 

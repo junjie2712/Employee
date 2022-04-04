@@ -15,7 +15,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{{ url_for('static',filename='dist/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
-
+    <!-- <link href="../static/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"> -->
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -87,18 +87,30 @@
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Display Employee</h1>
                 </div>
-                <table>
-                    {% for item in data %}
-                    <tr>
-                        <td>{{item[0]}}</td>
-                        <td>{{item[1]}}</td>
-                        <td>{{item[2]}}</td>
-                        <td>{{item[3]}}</td>
-                        <td>{{item[4]}}</td>
-                        <td>{{item[5]}}</td>
-                    </tr>
-                    {% endfor %}
-                </table>
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th scope="col">Employee ID</th>
+                                <th scope="col">Employee Name</th>
+                                <th scope="col">Position</th>
+                                <th scope="col">Payscale</th>
+                                <th scope="col">Hire Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in data %}
+                            <tr>
+                                <td>{{item[0]}}</td>
+                                <td>{{item[2]}} {{item[1]}}</td>
+                                <td>{{item[3]}}</td>
+                                <td>{{item[4]}}</td>
+                                <td>{{item[5]}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </main>
 
         </div>
@@ -106,6 +118,7 @@
 
 
     <script src="{{ url_for('static',filename='dist/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- <script src="../static/dist/js/bootstrap.bundle.min.js"></script> -->
 
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
         integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"

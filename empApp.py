@@ -5,7 +5,7 @@ import boto3
 import os.path
 from config import *
 
-STATIC_DIR = os.path.abspath('awsWebsite/assets/dist')
+STATIC_DIR = os.path.abspath('static')
 
 app = Flask(__name__, template_folder='awsWebsite' ,static_folder=STATIC_DIR)
 

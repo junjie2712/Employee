@@ -107,5 +107,26 @@ def searchEmp():
     else:
         return render_template('addLeave.html')
 
+@app.route("/saveLeave", methods=['POST'])
+def AddLeave():
+    leaID=request.form['leaveID'] 
+    empID = request.form['searchData']
+    empName = request.form['name']
+    totalDays = request.form['totalDays']
+    reason = request.form['reason']
+    insert_sql = "INSERT INTO leave VALUES (%s, %s, %s, %s, %s)"
+    cursor = db_conn.cursor()
+
+    try:
+        cursor.execute(insert_sql, (leaID, empID, empName, totalDays, reason))
+        db_conn.commit()
+        except Exception as e:
+            return str(e)
+
+    finally:
+        cursor.close()
+        
+    return render_template('addLeave.html')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)

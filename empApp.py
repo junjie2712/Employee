@@ -26,7 +26,7 @@ table = 'Employee'
 def home():
     return render_template('index.html')
 
-@app.route("/addEmpUI")
+@app.route("/AddEmpUI")
 def AddEmpUI():
     return render_template('addEmp.html')
 

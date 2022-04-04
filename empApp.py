@@ -105,12 +105,12 @@ def searchEmp():
         data = cursor.fetchall() 
         return render_template("addEmpLeave.html", data=data)
     else:
-        return render_template('addEmpLeave.html.html')
+        return render_template('addEmpLeave.html')
 
-@app.route("/saveLeave", methods=['POST'])
+@app.route("/addEmpLeave", methods=['POST'])
 def AddLeave():
     leaID=request.form['leaveID'] 
-    empID = request.form['searchData']
+    empID = request.form['empID']
     empName = request.form['name']
     totalDays = request.form['totalDays']
     reason = request.form['reason']

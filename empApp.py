@@ -108,7 +108,7 @@ def searchEmp():
         return render_template('addEmpLeave.html')
 
 @app.route("/addEmpLeave", methods=['POST'])
-def AddLeave():
+def AddEmpLeave():
     leaID=request.form['leaveID'] 
     empID = request.form['empID']
     empName = request.form['name']

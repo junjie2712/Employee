@@ -115,7 +115,7 @@ def AddEmpLeave():
     totalDays = request.form['totalDays']
     reason = request.form['reason']
 
-    insert_addLeavesql = "INSERT INTO 'leave' VALUES (%s, %s, %s, %s, %s)"
+    insert_addLeavesql = "INSERT INTO empLeave VALUES (%s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
     try:

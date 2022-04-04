@@ -101,13 +101,11 @@ def AddEmp():
 def searchEmp():
     if request.method == "POST":
         cursor = db_conn.cursor()
-        try:
-            cursor.execute("SELECT * from employee where empID=%s",request.form['searchData'])
-        except Exception,e:
-            db_conn.rollback()
-        else:
-            db_conn.commit()
-            data = cursor.fetchone() 
+
+            cursor.execute("SELECT * from employee where empID='%s'",request.form['searchData'])
+
+
+            data = cursor.fetchall() 
        return render_template("addLeave.html", data=data)
     else:
          return render_template('addLeave.html')

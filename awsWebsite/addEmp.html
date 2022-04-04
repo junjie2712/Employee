@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Display Payroll</title>
+    <title>Add Employee</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
 
@@ -84,16 +84,56 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Display Payroll</h1>
+                    <h1 class="h2">Add Employee</h1>
                 </div>
 
-
+                <form action="/addEmp" method="POST" enctype="multipart/form-data">
+                    <table style="text-align: center;">
+                        <tr>
+                            <td>Employee ID</td>
+                            <td>:</td>
+                            <td><input type="text" name="empID"></td>
+                        </tr>
+                        <tr>
+                            <td>First Name</td>
+                            <td>:</td>
+                            <td><input type="text" name="fName"></td>
+                        </tr>
+                        <tr>
+                            <td>Last Name</td>
+                            <td>:</td>
+                            <td><input type="text" name="lName"></td>
+                        </tr>
+                        <tr>
+                            <td>Position</td>
+                            <td>:</td>
+                            <td><input type="text" name="position"></td>
+                        </tr>
+                        <tr>
+                            <td>Payscale</td>
+                            <td>:</td>
+                            <td><input type="number" name="payscale"></td>
+                        </tr>
+                        <tr>
+                            <td>Hire Date</td>
+                            <td>:</td>
+                            <td><input type="text" name="hDate"></td>
+                        </tr>
+                        <tr>
+                            <td>Employee Image</td>
+                            <td>:</td>
+                            <td><input type="file" name="empImage"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><button class="btn btn-outline-primary" type="submit">Add</button></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </form>
             </main>
-
-
         </div>
     </div>
-
 
     <script src="{{ url_for('static',filename='dist/js/bootstrap.bundle.min.js') }}"></script>
 
